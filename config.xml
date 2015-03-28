@@ -5,10 +5,6 @@
         version     = "1.0.0"
         versionCode = "10" >
 
-        <!-- versionCode is optional and Android only -->
-
-        <preference name="phonegap-version" value="3.5.0" />
-
         <name>Secciones Electorales</name>
 
         <description>
