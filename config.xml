@@ -7,4 +7,7 @@ versionCode = "10" >
 <name>Secciones Electorales</name><description>Secciones electorales federales en cuernavaca</description>
 <author href="http://etpsoluciones.com" email="enrique_hdez.cortes@hotmail.com">Enrique Hernandez</author>
 <icon src="images/etp-icon.jpg" />
+<feature name="NetworkInformation">
+        <param name="android-package" value="org.apache.cordova.network-information" />
+    </feature>
 </widget>
