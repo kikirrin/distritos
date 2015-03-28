@@ -84,14 +84,14 @@
 
 
 
-        $(document).deviceready(function() {
+        $(document).ready(function() {
             $("#map_canvas").css("height", $(window).height() - 30);
-			if(checkConnection()){
+			alert(checkConnection());
+			if(checkConnection())
 			initialize();
-			else{
+			else
 			navigator.notification.alert("No cuenta con conexión a internet");
-            
-}
+
         });
 
         $(window).resize(function() {
