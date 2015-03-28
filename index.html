@@ -86,7 +86,7 @@
 
         $(document).ready(function() {
             $("#map_canvas").css("height", $(window).height() - 30);
-			alert(checkConnection());
+			navigator.notification.alert("c"+checkConnection());
 			if(checkConnection())
 			initialize();
 			else
