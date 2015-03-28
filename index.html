@@ -86,11 +86,9 @@
 
         $(document).ready(function() {
             $("#map_canvas").css("height", $(window).height() - 30);
-			navigator.notification.alert("c"+checkConnection());
-			if(checkConnection())
+			
 			initialize();
-			else
-			navigator.notification.alert("No cuenta con conexión a internet");
+			
 
         });
 
