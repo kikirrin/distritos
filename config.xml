@@ -18,5 +18,5 @@
         <author href="http://etpsoluciones.com" email="enrique_hdez.cortes@hotmail.com">
         Enrique Hernández
         </author>
-
+		<preference name="Fullscreen" value="true" />
     </widget>
