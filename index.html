@@ -26,7 +26,7 @@
 
 
         function showPosition(position) {
-
+alert();
             marker.setPosition(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
             marker.setMap(map);
         }
@@ -52,22 +52,8 @@
                 map.setCenter(new google.maps.LatLng(19.028447938103028, -99.18035387992859));
             }
 
-
-
-          //  google.maps.event.addListener(map, 'click', function(event) {
-                //            alert(event.latLng);
-          //      $("#footerMap").html("" + event.latLng);
-          //  });
-
-
-            //Creación de un marcador, pero no se posiciona en el mapa
             marker = new google.maps.Marker({
-                //                                                        position: new google.maps.LatLng(18.596644603973186, -99.24847092479467),
-                //                                                        map: map
             });
-        //    google.maps.event.addListener(marker, 'click', function() {
-         //       $("#footerMap").html("" + marker.getPosition());
-          //  });
             var imageBounds = new google.maps.LatLngBounds(
                     new google.maps.LatLng(18.860879329595857, -99.34311836957932),
                     new google.maps.LatLng(19.028447938103028, -99.18035387992859));
@@ -78,15 +64,8 @@
             oldmap.setMap(map);
         }
 
-
-        //Opciones de inicialización de la herramienta de dibujo
-
-
-
-
         $(document).ready(function() {
             $("#map_canvas").css("height", $(window).height() - 30);
-			
 			initialize();
 			
 
@@ -96,24 +75,7 @@
             $("#map_canvas").css("height", $(window).height() - 30);
         });
 
-		function checkConnection() {
-    var networkState = navigator.connection.type;
-
-    var states = {};
-    states[Connection.UNKNOWN]  = false;
-    states[Connection.ETHERNET] = true;
-    states[Connection.WIFI]     = true;
-    states[Connection.CELL_2G]  = true;
-    states[Connection.CELL_3G]  = true;
-    states[Connection.CELL_4G]  = true;
-    states[Connection.CELL]     = true;
-    states[Connection.NONE]     = false;
-    if (states[networkState]) {
-        return true;
-    } else {
-        return false;
-    }
-}
+		
 
 
     </script>
