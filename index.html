@@ -25,11 +25,19 @@
 
 
 
-        function showPosition(position) {
-            marker.setPosition(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+       
+		function onSuccess(position) {
+			alert('Latitude: '  + position.coords.latitude      + '<br />' +'Longitude: ' + position.coords.longitude     + '<br />' +'<hr />');			
+			marker.setPosition(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
             marker.setMap(map);
-        }
+}
 
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
 
         function initialize() {
 
@@ -45,9 +53,11 @@
             map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
+				alert("si hay navigator");
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
             } else {
+			alert("no hay navigator");
                 map.setCenter(new google.maps.LatLng(19.028447938103028, -99.18035387992859));
             }
 
