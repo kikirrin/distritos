@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
 xmlns:gap   = "http://phonegap.com/ns/1.0"
-id          = "com.phonegap.distritos"
+id          = "com.phonegap.secciones"
 version     = "1.0.0"
 versionCode = "10" >
-<name>Secciones Electorales</name><description>Secciones electorales federales en cuernavaca</description>
+<name>Secciones Electorales</name>
+<description>Secciones Electorales Federales en Cuernavaca</description>
 <author href="http://etpsoluciones.com" email="enrique_hdez.cortes@hotmail.com">Enrique Hernandez</author>
+
 <preference name="phonegap-version" value="3.5.0" />
-<icon src="images/etp-icon.jpg" />
-<gap:plugin name="org.apache.cordova.geolocation" version="0.3.10" />
-<gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
+
+    <preference name="fullscreen" value="true" />           <!-- all: hides the status bar at the top of the screen -->
+    <preference name="webviewbounce" value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
+    <preference name="exit-on-suspend" value="false" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
+    <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
+    <preference name="auto-hide-splash-screen" value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
+    <preference name="android-installLocation" value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
+    
+    <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.geolocation" />    
+    <gap:plugin name="org.apache.cordova.splashscreen" />
+	<gap:plugin name="org.apache.cordova.network-information" />
+
+<icon src="images/icon.png" />
+<gap:splash src="images/portrait.png" gap:platform="ios" width="768" height="1024" />
+<gap:splash src="images/landscape.png" gap:platform="ios" width="1024" height="768" />
+<gap:splash src="images/portrait.png" gap:platform="android" gap:qualifier="port-hdpi" />
+<gap:splash src="images/landscape.png" gap:platform="android" gap:qualifier="port-xhdpi" />
+
+
 </widget>
