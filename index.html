@@ -17,7 +17,6 @@
     <script>
 
         var map;
-
         var marker;
 
         $(document).ready(function() {
@@ -32,46 +31,44 @@
         });
 
 
-function initialize() {
-  var mapOptions = {
-    zoom: 13
-  };
-  map = new google.maps.Map(document.getElementById('map_canvas'),
-      mapOptions);
-	  
-	  marker = new google.maps.Marker({
-            });
-            var imageBounds = new google.maps.LatLngBounds(
-                    new google.maps.LatLng(18.860879329595857, -99.34311836957932),
-                    new google.maps.LatLng(19.028447938103028, -99.18035387992859));
+		function initialize() {
+					var mapOptions = {
+						zoom: 13
+					};
+					map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+			  
+					marker = new google.maps.Marker({
+					});
+					var imageBounds = new google.maps.LatLngBounds(
+						new google.maps.LatLng(18.860879329595857, -99.34311836957932), 
+						new google.maps.LatLng(19.028447938103028, -99.18035387992859)
+					);
 
-            var oldmap = new google.maps.GroundOverlay(
-                    "images/mapa7.png",
-                    imageBounds);
-            oldmap.setMap(map);
+					var oldmap = new google.maps.GroundOverlay("images/mapa7.png", imageBounds);
+					oldmap.setMap(map);
 
-  // Try HTML5 geolocation
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		  // Try HTML5 geolocation
+			if(navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'Location found using HTML5.'
-      });
-	  marker.setPosition(pos);
-	  marker.setMap(map);
+					var infowindow = new google.maps.InfoWindow({
+						map: map,
+						position: pos,
+						content: 'Location found using HTML5.'
+					});
+					marker.setPosition(pos);
+					marker.setMap(map);
 
-      map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
-}
+					map.setCenter(pos);
+				}, function() {
+				  handleNoGeolocation(true);
+				});
+			 } else {
+				// Browser doesn't support Geolocation
+				handleNoGeolocation(false);
+			 }
+		}
 
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
