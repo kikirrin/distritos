@@ -20,59 +20,6 @@
 
         var marker;
 
-
-        //Se establece el listener del evento para cuando se cierre la forma a dibujar
-
-
-
-       
-		function onSuccess(position) {
-			alert('Latitude: '  + position.coords.latitude      + '<br />' +'Longitude: ' + position.coords.longitude     + '<br />' +'<hr />');			
-			marker.setPosition(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-            marker.setMap(map);
-}
-
-// onError Callback receives a PositionError object
-//
-function onError(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
-}
-
-        function initialize() {
-
-
-            var myOptions = {
-                zoom: 13,
-                center: new google.maps.LatLng(18.93080713014078, -99.22439575195312),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-
-
-            //Inicialización del mapa
-            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-            if (navigator.geolocation) {
-				alert("si hay navigator");
-                navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
-            } else {
-			alert("no hay navigator");
-                map.setCenter(new google.maps.LatLng(19.028447938103028, -99.18035387992859));
-            }
-
-            marker = new google.maps.Marker({
-            });
-            var imageBounds = new google.maps.LatLngBounds(
-                    new google.maps.LatLng(18.860879329595857, -99.34311836957932),
-                    new google.maps.LatLng(19.028447938103028, -99.18035387992859));
-
-            var oldmap = new google.maps.GroundOverlay(
-                    "images/mapa.png",
-                    imageBounds);
-            oldmap.setMap(map);
-        }
-
         $(document).ready(function() {
             $("#map_canvas").css("height", $(window).height() - 30);
 			initialize();
@@ -84,6 +31,64 @@ function onError(error) {
             $("#map_canvas").css("height", $(window).height() - 30);
         });
 
+
+function initialize() {
+  var mapOptions = {
+    zoom: 13
+  };
+  map = new google.maps.Map(document.getElementById('map_canvas'),
+      mapOptions);
+	  
+	  marker = new google.maps.Marker({
+            });
+            var imageBounds = new google.maps.LatLngBounds(
+                    new google.maps.LatLng(18.860879329595857, -99.34311836957932),
+                    new google.maps.LatLng(19.028447938103028, -99.18035387992859));
+
+            var oldmap = new google.maps.GroundOverlay(
+                    "images/mapa7.png",
+                    imageBounds);
+            oldmap.setMap(map);
+
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'Location found using HTML5.'
+      });
+	  marker.setPosition(pos);
+	  marker.setMap(map);
+
+      map.setCenter(pos);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(18.93080713014078, -99.22439575195312),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
 		
 
 
