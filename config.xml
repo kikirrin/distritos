@@ -7,7 +7,8 @@ versionCode = "10" >
 <name>Secciones Electorales</name><description>Secciones electorales federales en cuernavaca</description>
 <author href="http://etpsoluciones.com" email="enrique_hdez.cortes@hotmail.com">Enrique Hernandez</author>
 <icon src="images/etp-icon.jpg" />
-<gap:plugin name="Compass" value="org.apache.cordova.core.CompassListener" />
-<gap:plugin name="Geolocation" value="org.apache.cordova.core.GeoBroker" />
-<gap:plugin name="NetworkStatus" value="org.apache.cordova.core.NetworkManager" />
+<plugin name="Accelerometer" value="org.apache.cordova.core.AccelListener" />
+<plugin name="Compass" value="org.apache.cordova.core.CompassListener" />
+<plugin name="Geolocation" value="org.apache.cordova.core.GeoBroker" />
+<plugin name="NetworkStatus" value="org.apache.cordova.core.NetworkManager" />
 </widget>
