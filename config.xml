@@ -11,4 +11,5 @@ versionCode = "10" >
 <plugin name="Compass" value="org.apache.cordova.core.CompassListener" />
 <plugin name="Geolocation" value="org.apache.cordova.core.GeoBroker" />
 <plugin name="NetworkStatus" value="org.apache.cordova.core.NetworkManager" />
+<plugin name="Geolocation" value="CDVLocation" />
 </widget>
