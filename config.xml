@@ -8,9 +8,5 @@ versionCode = "10">
 <description>Secciones Electorales Federales en Cuernavaca</description>
 <author href="http://etpsoluciones.com" email="enrique_hdez.cortes@hotmail.com">Enrique Hernandez</author>
 <preference name="phonegap-version" value="3.7.0" />
-<gap:plugin name="org.apache.cordova.geolocation" />
 <icon src="images/icon.png" />
-<gap:config-file platform="ios" parent="CFBundleShortVersionString">
-<string>100</string>
-</gap:config-file>
 </widget>
